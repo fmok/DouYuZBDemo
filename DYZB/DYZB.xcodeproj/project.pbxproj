@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8443E75A1F15F7EF002EDF01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8443E7591F15F7EF002EDF01 /* AppDelegate.swift */; };
-		8443E75F1F15F7EF002EDF01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8443E75D1F15F7EF002EDF01 /* Main.storyboard */; };
 		8443E7621F15F7EF002EDF01 /* DYZB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8443E7601F15F7EF002EDF01 /* DYZB.xcdatamodeld */; };
 		8443E7641F15F7EF002EDF01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8443E7631F15F7EF002EDF01 /* Assets.xcassets */; };
 		8443E7671F15F7EF002EDF01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8443E7651F15F7EF002EDF01 /* LaunchScreen.storyboard */; };
@@ -17,12 +16,12 @@
 		8443E7961F161897002EDF01 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8443E7951F161897002EDF01 /* Live.storyboard */; };
 		8443E7981F16189E002EDF01 /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8443E7971F16189E002EDF01 /* Follow.storyboard */; };
 		8443E79A1F1618A4002EDF01 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8443E7991F1618A4002EDF01 /* Profile.storyboard */; };
+		8443E79C1F1619DE002EDF01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8443E79B1F1619DE002EDF01 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8443E7561F15F7EF002EDF01 /* DYZB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYZB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8443E7591F15F7EF002EDF01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8443E75E1F15F7EF002EDF01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8443E7611F15F7EF002EDF01 /* DYZB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DYZB.xcdatamodel; sourceTree = "<group>"; };
 		8443E7631F15F7EF002EDF01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8443E7661F15F7EF002EDF01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -32,6 +31,7 @@
 		8443E7951F161897002EDF01 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
 		8443E7971F16189E002EDF01 /* Follow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Follow.storyboard; sourceTree = "<group>"; };
 		8443E7991F1618A4002EDF01 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		8443E79B1F1619DE002EDF01 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,7 @@
 		8443E7721F15FBEF002EDF01 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				8443E75D1F15F7EF002EDF01 /* Main.storyboard */,
+				8443E79B1F1619DE002EDF01 /* Main.storyboard */,
 				8443E7811F1609F8002EDF01 /* MainViewController.swift */,
 			);
 			path = Main;
@@ -195,9 +195,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8443E79C1F1619DE002EDF01 /* Main.storyboard in Resources */,
 				8443E7671F15F7EF002EDF01 /* LaunchScreen.storyboard in Resources */,
 				8443E7641F15F7EF002EDF01 /* Assets.xcassets in Resources */,
-				8443E75F1F15F7EF002EDF01 /* Main.storyboard in Resources */,
 				8443E7961F161897002EDF01 /* Live.storyboard in Resources */,
 				8443E7941F16187C002EDF01 /* Home.storyboard in Resources */,
 				8443E79A1F1618A4002EDF01 /* Profile.storyboard in Resources */,
@@ -221,15 +221,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8443E75D1F15F7EF002EDF01 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8443E75E1F15F7EF002EDF01 /* Base */,
-			);
-			name = Main.storyboard;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		8443E7651F15F7EF002EDF01 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
