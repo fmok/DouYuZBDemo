@@ -11,12 +11,14 @@
 		8443E7621F15F7EF002EDF01 /* DYZB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8443E7601F15F7EF002EDF01 /* DYZB.xcdatamodeld */; };
 		8443E7641F15F7EF002EDF01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8443E7631F15F7EF002EDF01 /* Assets.xcassets */; };
 		8443E7671F15F7EF002EDF01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8443E7651F15F7EF002EDF01 /* LaunchScreen.storyboard */; };
-		8443E7821F1609F8002EDF01 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8443E7811F1609F8002EDF01 /* MainViewController.swift */; };
-		8443E7941F16187C002EDF01 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8443E7931F16187C002EDF01 /* Home.storyboard */; };
 		8443E7961F161897002EDF01 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8443E7951F161897002EDF01 /* Live.storyboard */; };
 		8443E7981F16189E002EDF01 /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8443E7971F16189E002EDF01 /* Follow.storyboard */; };
 		8443E79A1F1618A4002EDF01 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8443E7991F1618A4002EDF01 /* Profile.storyboard */; };
-		8443E79C1F1619DE002EDF01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8443E79B1F1619DE002EDF01 /* Main.storyboard */; };
+		8443E7A21F161CDB002EDF01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8443E79E1F161CDB002EDF01 /* Main.storyboard */; };
+		8443E7A31F161CDB002EDF01 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8443E79F1F161CDB002EDF01 /* MainViewController.swift */; };
+		8443E7A81F161CFD002EDF01 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8443E7A51F161CFD002EDF01 /* Home.storyboard */; };
+		8443E7AA1F161D20002EDF01 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8443E7A91F161D20002EDF01 /* HomeViewController.swift */; };
+		8443E7B11F162486002EDF01 /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8443E7B01F162486002EDF01 /* UIBarButtonItem-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,12 +28,14 @@
 		8443E7631F15F7EF002EDF01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8443E7661F15F7EF002EDF01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8443E7681F15F7EF002EDF01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8443E7811F1609F8002EDF01 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		8443E7931F16187C002EDF01 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		8443E7951F161897002EDF01 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
 		8443E7971F16189E002EDF01 /* Follow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Follow.storyboard; sourceTree = "<group>"; };
 		8443E7991F1618A4002EDF01 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		8443E79B1F1619DE002EDF01 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8443E79E1F161CDB002EDF01 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8443E79F1F161CDB002EDF01 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8443E7A51F161CFD002EDF01 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		8443E7A91F161D20002EDF01 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8443E7B01F162486002EDF01 /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +102,9 @@
 		8443E7701F15FBEF002EDF01 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				8443E7931F16187C002EDF01 /* Home.storyboard */,
+				8443E7A41F161CFD002EDF01 /* Controller */,
+				8443E7A61F161CFD002EDF01 /* Model */,
+				8443E7A71F161CFD002EDF01 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -114,8 +120,9 @@
 		8443E7721F15FBEF002EDF01 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				8443E79B1F1619DE002EDF01 /* Main.storyboard */,
-				8443E7811F1609F8002EDF01 /* MainViewController.swift */,
+				8443E79D1F161CDB002EDF01 /* Controller */,
+				8443E7A01F161CDB002EDF01 /* Model */,
+				8443E7A11F161CDB002EDF01 /* View */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -131,8 +138,63 @@
 		8443E7741F15FBEF002EDF01 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				8443E7AB1F1622FF002EDF01 /* Extension */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		8443E79D1F161CDB002EDF01 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8443E79E1F161CDB002EDF01 /* Main.storyboard */,
+				8443E79F1F161CDB002EDF01 /* MainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8443E7A01F161CDB002EDF01 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8443E7A11F161CDB002EDF01 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8443E7A41F161CFD002EDF01 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8443E7A51F161CFD002EDF01 /* Home.storyboard */,
+				8443E7A91F161D20002EDF01 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8443E7A61F161CFD002EDF01 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8443E7A71F161CFD002EDF01 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8443E7AB1F1622FF002EDF01 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8443E7B01F162486002EDF01 /* UIBarButtonItem-Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,11 +257,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8443E79C1F1619DE002EDF01 /* Main.storyboard in Resources */,
+				8443E7A81F161CFD002EDF01 /* Home.storyboard in Resources */,
+				8443E7A21F161CDB002EDF01 /* Main.storyboard in Resources */,
 				8443E7671F15F7EF002EDF01 /* LaunchScreen.storyboard in Resources */,
 				8443E7641F15F7EF002EDF01 /* Assets.xcassets in Resources */,
 				8443E7961F161897002EDF01 /* Live.storyboard in Resources */,
-				8443E7941F16187C002EDF01 /* Home.storyboard in Resources */,
 				8443E79A1F1618A4002EDF01 /* Profile.storyboard in Resources */,
 				8443E7981F16189E002EDF01 /* Follow.storyboard in Resources */,
 			);
@@ -212,9 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8443E7821F1609F8002EDF01 /* MainViewController.swift in Sources */,
+				8443E7B11F162486002EDF01 /* UIBarButtonItem-Extension.swift in Sources */,
+				8443E7A31F161CDB002EDF01 /* MainViewController.swift in Sources */,
 				8443E7621F15F7EF002EDF01 /* DYZB.xcdatamodeld in Sources */,
 				8443E75A1F15F7EF002EDF01 /* AppDelegate.swift in Sources */,
+				8443E7AA1F161D20002EDF01 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
