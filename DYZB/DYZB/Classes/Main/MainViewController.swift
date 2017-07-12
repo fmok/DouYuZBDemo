@@ -14,13 +14,13 @@ class MainViewController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        addChildVC(storyName: "Home")
-        addChildVC(storyName: "Live")
-        addChildVC(storyName: "Follow")
-        addChildVC(storyName: "Profile")
+        addChildVC("Home")
+        addChildVC("Live")
+        addChildVC("Follow")
+        addChildVC("Profile")
     }
     
-    private func addChildVC(storyName : String) {
+    fileprivate func addChildVC(_ storyName : String) {
         // 1、通过storyBoard获取控制器
         let childVC = UIStoryboard(name: storyName, bundle:nil).instantiateInitialViewController()!
         // 2、将childVC作为子控制器
