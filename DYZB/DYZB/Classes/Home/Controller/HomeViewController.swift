@@ -8,12 +8,25 @@
 
 import UIKit
 
+private let titleViewH: CGFloat = 40
+
 class HomeViewController: UIViewController {
+    
+    // MARK - 懒加载属性
+    fileprivate lazy var pageTitleView: FMPageTitleView = {
+        let titleFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH, width: kScreenW, height: titleViewH)
+        let titles = ["推荐", "游戏", "娱乐", "趣玩"]
+        let titleView = FMPageTitleView(frame: titleFrame, titles: titles)
+        titleView.backgroundColor = UIColor.purple
+        return titleView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // 设置UI界面
         setUpUI()
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -35,19 +48,22 @@ class HomeViewController: UIViewController {
 
 }
 
-// MARK - 
+// MARK - 设置UI界面
 extension HomeViewController {
     fileprivate func setUpUI() {
-        // 1、不需要调整Scrollview的内边距
+        // 0、不需要调整Scrollview的内边距
         automaticallyAdjustsScrollViewInsets = false
-        // 2、设置导航栏
+        // 1、设置导航栏
         setUpNavigationBar()
+        // 2、添加titleView
+        view.addSubview(pageTitleView)
         
     }
     
     fileprivate func setUpNavigationBar() {
         // 1、设置左侧item
-        navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "logo")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal), style: UIBarButtonItemStyle.plain, target: self, action: #selector(logoAction))
+        let logoItem = UIBarButtonItem(imageName: "logo", highImageName: "", size: CGSize.zero, target: self, action: #selector(logoAction))
+        navigationItem.leftBarButtonItem = logoItem
         
         // 2、设置右侧item
         let size = CGSize(width: 40, height: 40)
