@@ -13,18 +13,18 @@ extension UIBarButtonItem {
     convenience init(imageName: String, highImageName: String = "", size: CGSize = CGSize.zero, target: Any?, action:Selector?) {
         let btn = UIButton()
         
-        btn.setImage(UIImage(named: imageName), for: UIControlState.normal)
+        btn.setImage(UIImage(named: imageName), for: .normal)
         if highImageName != "" {
-            btn.setImage(UIImage(named:highImageName), for: UIControlState.highlighted)
+            btn.setImage(UIImage(named:highImageName), for: .highlighted)
         }
         
-        if size == CGSize.zero {
+        if size == .zero {
             btn.sizeToFit()
         } else {
-            btn.frame = CGRect(origin: CGPoint.zero, size: size)
+            btn.frame = CGRect(origin: .zero, size: size)
         }
         
-        btn.addTarget(target, action: action!, for: UIControlEvents.touchUpInside)
+        btn.addTarget(target, action: action!, for: .touchUpInside)
         
         self.init(customView: btn)
     }

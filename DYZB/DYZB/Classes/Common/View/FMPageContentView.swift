@@ -15,6 +15,7 @@ class FMPageContentView: UIView {
     // MARK - 定义属性
     fileprivate var childVCs: [UIViewController]
     fileprivate weak var parentVC: UIViewController?
+    fileprivate var startOffsetX: CGFloat = 0
     
     // MARK - 懒加载属性
     fileprivate lazy var collectionView: UICollectionView = { [weak self] in
@@ -86,7 +87,16 @@ extension FMPageContentView: UICollectionViewDataSource {
 // MARK - UICollectionViewDelegate
 extension FMPageContentView: UICollectionViewDelegate {
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startOffsetX = scrollView.contentOffset.x
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        var progress: CGFloat = 0
+        var sourceIndex: Int = 0
+        var targetIndex: Int = 0
+        
+        
         
     }
     
