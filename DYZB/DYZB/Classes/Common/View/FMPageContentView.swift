@@ -14,12 +14,12 @@ class FMPageContentView: UIView {
 
     // MARK - 定义属性
     fileprivate var childVCs: [UIViewController]
-    fileprivate var parentVC: UIViewController
+    fileprivate weak var parentVC: UIViewController?
     
     // MARK - 懒加载属性
-    fileprivate lazy var collectionView: UICollectionView = {
+    fileprivate lazy var collectionView: UICollectionView = { [weak self] in
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = self.bounds.size
+        layout.itemSize = (self?.bounds.size)!
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
@@ -35,7 +35,7 @@ class FMPageContentView: UIView {
     }()
     
     // MARK - 自定义构造函数
-    init(frame: CGRect, childVCs: [UIViewController], parentViewController: UIViewController) {
+    init(frame: CGRect, childVCs: [UIViewController], parentViewController: UIViewController?) {
         self.childVCs = childVCs
         self.parentVC = parentViewController
         super.init(frame: frame)
@@ -53,7 +53,7 @@ extension FMPageContentView {
     fileprivate func setUpUI() {
         // 1、将所有的子控制器添加到父控制器当中
         for childVC in childVCs {
-            parentVC.addChildViewController(childVC)
+            parentVC?.addChildViewController(childVC)
         }
         // 2、添加UICollectionView用于在cell中存放控制器的view
         addSubview(collectionView)
