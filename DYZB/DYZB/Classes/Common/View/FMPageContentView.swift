@@ -29,7 +29,7 @@ class FMPageContentView: UIView {
         collectionView.isPagingEnabled = true
         collectionView.bounces = false
         collectionView.dataSource = self
-//        collectionView.delegate = self
+        collectionView.delegate = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: contentCellIdentifier)
         return collectionView
     }()
@@ -61,6 +61,7 @@ extension FMPageContentView {
     }
 }
 
+// MARK - UICollectionViewDataSource
 extension FMPageContentView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -80,7 +81,25 @@ extension FMPageContentView: UICollectionViewDataSource {
         
         return cell
     }
+}
+
+// MARK - UICollectionViewDelegate
+extension FMPageContentView: UICollectionViewDelegate {
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+    }
+    
+}
+
+// MARK - 对外暴露的方法
+extension FMPageContentView {
+    func setCurrentIndex(currentIndex: Int) {
+//        let offsetX = CGFloat(currentIndex) * collectionView.frame.width
+//        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: false)
+        let indexPath = NSIndexPath(item: currentIndex, section: 0)
+        collectionView.scrollToItem(at: indexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
+    }
 }
 
 

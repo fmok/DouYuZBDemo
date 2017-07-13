@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol FMPageTitleViewDelegate: class {  // class 表示协议只能被 类 遵守
+    func pageTitleView(titleView: FMPageTitleView, selectedIndex index: Int)
+}
+
 private let kScrollLineH: CGFloat = 2
 
 class FMPageTitleView: UIView {
     
     // MARK - 定义属性
     fileprivate var titles: [String]
+    fileprivate var currentIndex: Int = 0
+    weak var delegate: FMPageTitleViewDelegate?
     
     // MARK - 懒加载属性
     fileprivate lazy var scrollView: UIScrollView = {
@@ -49,6 +55,7 @@ class FMPageTitleView: UIView {
     }
 }
 
+// MARK - 设置UI界面
 extension FMPageTitleView {
     fileprivate func setUpUI() {
         // 1、添加ScrollView
@@ -77,7 +84,7 @@ extension FMPageTitleView {
             label.text = title
             label.tag = index
             label.font = UIFont.systemFont(ofSize: 16)
-            label.textColor = UIColor.black
+            label.textColor = UIColor.darkGray
             label.textAlignment = .center
             
             // 3、设置label的frame
@@ -87,7 +94,13 @@ extension FMPageTitleView {
             // 4、将label添加到scrollView中
             scrollView.addSubview(label)
             
+            // 5、将label添加到 titleLabels中
             titleLabels.append(label)
+            
+            // 6、给label添加手势
+            label.isUserInteractionEnabled = true
+            let tapGes = UITapGestureRecognizer(target: self, action: #selector(titleLabelClick(tapGes:)))
+            label.addGestureRecognizer(tapGes)
         }
     }
     
@@ -109,6 +122,33 @@ extension FMPageTitleView {
     }
 }
 
+// MARK - 监听label的点击
+extension FMPageTitleView {
+    @objc fileprivate func titleLabelClick(tapGes: UITapGestureRecognizer) {
+        // 1、获取当前label的下标
+        guard let currentLabel = tapGes.view as? UILabel else {
+            return
+        }
+        // 2、获取之前的label
+        let oldLabel = titleLabels[currentIndex]
+        
+        // 3、保存最新label的下标
+        currentIndex = currentLabel.tag
+        
+        // 4、切换文字颜色
+        currentLabel.textColor = UIColor.orange
+        oldLabel.textColor = UIColor.darkGray
+        
+        // 5、滚动条位置更新
+        let scrollLinePositionX = CGFloat(currentLabel.tag) * scrollLine.frame.size.width
+        UIView.animate(withDuration: 0.15) { 
+            self.scrollLine.frame.origin.x = scrollLinePositionX
+        }
+        
+        // 6、通知代理做出详情操作
+        delegate?.pageTitleView(titleView: self, selectedIndex: currentIndex)
+    }
+}
 
 
 

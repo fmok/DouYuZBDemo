@@ -13,11 +13,12 @@ private let kTitleViewH: CGFloat = 40
 class HomeViewController: UIViewController {
     
     // MARK - 懒加载属性
-    fileprivate lazy var pageTitleView: FMPageTitleView = {
+    fileprivate lazy var pageTitleView: FMPageTitleView = { [weak self] in
         let titleFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH, width: kScreenW, height: kTitleViewH)
         let titles = ["推荐", "游戏", "娱乐", "趣玩"]
         let titleView = FMPageTitleView(frame: titleFrame, titles: titles)
         titleView.backgroundColor = UIColor.white
+        titleView.delegate = self
         return titleView
     }()
     
@@ -96,3 +97,17 @@ extension HomeViewController {
         print("click qrCode")
     }
 }
+
+// MARK - FMPageTitleViewDelegate
+extension HomeViewController: FMPageTitleViewDelegate {
+    
+    func pageTitleView(titleView: FMPageTitleView, selectedIndex index: Int) {
+        pageContentView.setCurrentIndex(currentIndex: index)
+    }
+    
+}
+
+
+
+
+
