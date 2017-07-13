@@ -10,6 +10,8 @@
 		842AB2A41F170F390012FC6E /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842AB2A31F170F390012FC6E /* UIBarButtonItem-Extension.swift */; };
 		842AB2AA1F17119A0012FC6E /* FMPageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842AB2A91F17119A0012FC6E /* FMPageTitleView.swift */; };
 		842AB2AE1F17146E0012FC6E /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842AB2AD1F17146E0012FC6E /* Common.swift */; };
+		842AB2B01F1746600012FC6E /* FMPageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842AB2AF1F1746600012FC6E /* FMPageContentView.swift */; };
+		842AB2B21F175B740012FC6E /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842AB2B11F175B740012FC6E /* UIColor-Extension.swift */; };
 		8443E75A1F15F7EF002EDF01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8443E7591F15F7EF002EDF01 /* AppDelegate.swift */; };
 		8443E7621F15F7EF002EDF01 /* DYZB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8443E7601F15F7EF002EDF01 /* DYZB.xcdatamodeld */; };
 		8443E7641F15F7EF002EDF01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8443E7631F15F7EF002EDF01 /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 		842AB2A31F170F390012FC6E /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
 		842AB2A91F17119A0012FC6E /* FMPageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMPageTitleView.swift; sourceTree = "<group>"; };
 		842AB2AD1F17146E0012FC6E /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		842AB2AF1F1746600012FC6E /* FMPageContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMPageContentView.swift; sourceTree = "<group>"; };
+		842AB2B11F175B740012FC6E /* UIColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
 		8443E7561F15F7EF002EDF01 /* DYZB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYZB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8443E7591F15F7EF002EDF01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8443E7611F15F7EF002EDF01 /* DYZB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DYZB.xcdatamodel; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				842AB2A91F17119A0012FC6E /* FMPageTitleView.swift */,
+				842AB2AF1F1746600012FC6E /* FMPageContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				842AB2A31F170F390012FC6E /* UIBarButtonItem-Extension.swift */,
+				842AB2B11F175B740012FC6E /* UIColor-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -296,9 +302,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842AB2B01F1746600012FC6E /* FMPageContentView.swift in Sources */,
 				842AB2A41F170F390012FC6E /* UIBarButtonItem-Extension.swift in Sources */,
 				842AB2AA1F17119A0012FC6E /* FMPageTitleView.swift in Sources */,
 				8443E7A31F161CDB002EDF01 /* MainViewController.swift in Sources */,
+				842AB2B21F175B740012FC6E /* UIColor-Extension.swift in Sources */,
 				8443E7621F15F7EF002EDF01 /* DYZB.xcdatamodeld in Sources */,
 				8443E75A1F15F7EF002EDF01 /* AppDelegate.swift in Sources */,
 				8443E7AA1F161D20002EDF01 /* HomeViewController.swift in Sources */,

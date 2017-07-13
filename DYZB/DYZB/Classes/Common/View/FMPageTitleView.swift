@@ -25,6 +25,14 @@ class FMPageTitleView: UIView {
         scrollView.bounces = false // 范围不能超过内容的范围
         return scrollView
     }()
+    
+    fileprivate lazy var scrollLine: UIView = {
+        let scrollLine = UIView()
+        scrollLine.backgroundColor = UIColor.orange
+        return scrollLine
+    }()
+    
+    fileprivate lazy var titleLabels: [UILabel] = [UILabel]()
 
     // MARK - 自定义构造函数
     init(frame: CGRect, titles: [String]) {
@@ -49,6 +57,9 @@ extension FMPageTitleView {
         
         // 2、添加title对应的label
         setUpTitleLabel()
+        
+        // 3、设置底线 滚动滑块
+        setUpBottomMenuAndScrollLine()
     }
     
     private func setUpTitleLabel() {
@@ -66,7 +77,7 @@ extension FMPageTitleView {
             label.text = title
             label.tag = index
             label.font = UIFont.systemFont(ofSize: 16)
-            label.textColor = UIColor.green
+            label.textColor = UIColor.black
             label.textAlignment = .center
             
             // 3、设置label的frame
@@ -75,7 +86,26 @@ extension FMPageTitleView {
             
             // 4、将label添加到scrollView中
             scrollView.addSubview(label)
+            
+            titleLabels.append(label)
         }
+    }
+    
+    private func setUpBottomMenuAndScrollLine() {
+        // 1、添加底线
+        let bottomLine = UIView()
+        bottomLine.backgroundColor = UIColor.lightGray
+        let lineH: CGFloat = 0.5
+        bottomLine.frame = CGRect(x: 0, y: frame.height, width: frame.width, height: lineH)
+        addSubview(bottomLine)
+        
+        // 2、添加滚动的线
+        guard let firstLabel = titleLabels.first else {
+            return
+        }
+        firstLabel.textColor = UIColor.orange
+        scrollView.addSubview(scrollLine)
+        scrollLine.frame = CGRect(x: firstLabel.frame.origin.x, y: frame.height-kScrollLineH, width: firstLabel.frame.width, height: kScrollLineH)
     }
 }
 
