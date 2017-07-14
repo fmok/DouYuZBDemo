@@ -10,6 +10,7 @@ import UIKit
 
 protocol FMPageTitleViewDelegate: class {  // class 表示协议只能被 类 遵守
     func pageTitleView(titleView: FMPageTitleView, selectedIndex index: Int)
+    func pageTitleViewClickTheSameIndex(titleView: FMPageTitleView, currentIndex: Int)
 }
 
 private let kScrollLineH: CGFloat = 2
@@ -134,7 +135,7 @@ extension FMPageTitleView {
         // 2、获取之前的label
         let oldLabel = titleLabels[currentIndex]
         if oldLabel.tag == currentLabel.tag {
-            print("点击同一个title:\(currentLabel.tag)")
+            delegate?.pageTitleViewClickTheSameIndex(titleView: self, currentIndex: currentIndex)
             return
         }
         

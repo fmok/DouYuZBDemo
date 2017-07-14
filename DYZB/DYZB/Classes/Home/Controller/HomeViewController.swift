@@ -105,6 +105,10 @@ extension HomeViewController: FMPageTitleViewDelegate {
     func pageTitleView(titleView: FMPageTitleView, selectedIndex index: Int) {
         pageContentView.setCurrentIndex(currentIndex: index)
     }
+    
+    func pageTitleViewClickTheSameIndex(titleView: FMPageTitleView, currentIndex: Int) {
+        print("点击同一个tab:\(currentIndex)")
+    }
 }
 
 // MARK - FMPageContentViewDelegate
