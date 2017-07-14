@@ -13,6 +13,8 @@ protocol FMPageTitleViewDelegate: class {  // class 表示协议只能被 类 �
 }
 
 private let kScrollLineH: CGFloat = 2
+private let kNormalColor: (CGFloat, CGFloat, CGFloat) = (85, 85, 85)
+private let kSelectedColor: (CGFloat, CGFloat, CGFloat) = (255, 128, 0)
 
 class FMPageTitleView: UIView {
     
@@ -34,7 +36,7 @@ class FMPageTitleView: UIView {
     
     fileprivate lazy var scrollLine: UIView = {
         let scrollLine = UIView()
-        scrollLine.backgroundColor = UIColor.orange
+        scrollLine.backgroundColor = UIColor(r: kSelectedColor.0, g: kSelectedColor.1, b: kSelectedColor.2)
         return scrollLine
     }()
     
@@ -84,7 +86,7 @@ extension FMPageTitleView {
             label.text = title
             label.tag = index
             label.font = UIFont.systemFont(ofSize: 16)
-            label.textColor = UIColor.darkGray
+            label.textColor = UIColor(r: kNormalColor.0, g: kNormalColor.1, b: kNormalColor.2)
             label.textAlignment = .center
             
             // 3、设置label的frame
@@ -116,7 +118,7 @@ extension FMPageTitleView {
         guard let firstLabel = titleLabels.first else {
             return
         }
-        firstLabel.textColor = UIColor.orange
+        firstLabel.textColor = UIColor(r: kSelectedColor.0, g: kSelectedColor.1, b: kSelectedColor.2)
         scrollView.addSubview(scrollLine)
         scrollLine.frame = CGRect(x: firstLabel.frame.origin.x, y: frame.height-kScrollLineH, width: firstLabel.frame.width, height: kScrollLineH)
     }
@@ -136,8 +138,8 @@ extension FMPageTitleView {
         currentIndex = currentLabel.tag
         
         // 4、切换文字颜色
-        currentLabel.textColor = UIColor.orange
-        oldLabel.textColor = UIColor.darkGray
+        currentLabel.textColor = UIColor(r: kSelectedColor.0, g: kSelectedColor.1, b: kSelectedColor.2)
+        oldLabel.textColor = UIColor(r: kNormalColor.0, g: kNormalColor.1, b: kNormalColor.2)
         
         // 5、滚动条位置更新
         let scrollLinePositionX = CGFloat(currentLabel.tag) * scrollLine.frame.size.width
@@ -147,6 +149,26 @@ extension FMPageTitleView {
         
         // 6、通知代理做出详情操作
         delegate?.pageTitleView(titleView: self, selectedIndex: currentIndex)
+    }
+}
+
+// Mark - Public methods
+extension FMPageTitleView {
+    func setTitleWithProgress(progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+        // 1、取出sourceLabel、targetLabel
+        let sourceLabel = titleLabels[sourceIndex]
+        let targetLabel = titleLabels[targetIndex]
+        // 2、处理滑块
+        let moveTotalX = targetLabel.frame.origin.x - sourceLabel.frame.origin.x
+        let moveX = moveTotalX * progress
+        scrollLine.frame.origin.x = sourceLabel.frame.origin.x + moveX
+        // 3、处理渐变色
+        // 3.1、取出颜色变化的范围
+        let colorChangeRange = (kSelectedColor.0 - kNormalColor.0, kSelectedColor.1 - kNormalColor.1, kSelectedColor.2 - kNormalColor.2)
+        // 3.2、处理sourceLabel渐变色
+        sourceLabel.textColor = UIColor(r: kSelectedColor.0 - colorChangeRange.0*progress, g: kSelectedColor.1 - colorChangeRange.1*progress, b: kSelectedColor.2 - colorChangeRange.2*progress)
+        // 3.3、处理targetLabel渐变色
+        targetLabel.textColor = UIColor(r: kNormalColor.0 + colorChangeRange.0*progress, g: kNormalColor.1 + colorChangeRange.1*progress, b: kNormalColor.2 + colorChangeRange.2*progress)
     }
 }
 

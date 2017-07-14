@@ -35,6 +35,7 @@ class HomeViewController: UIViewController {
         }
         let pageContentView = FMPageContentView(frame: contentFrame, childVCs: childVCs, parentViewController: self)
         pageContentView.backgroundColor = UIColor.purple
+        pageContentView.delegate = self
         return pageContentView
     }()
 
@@ -104,7 +105,13 @@ extension HomeViewController: FMPageTitleViewDelegate {
     func pageTitleView(titleView: FMPageTitleView, selectedIndex index: Int) {
         pageContentView.setCurrentIndex(currentIndex: index)
     }
-    
+}
+
+// MARK - FMPageContentViewDelegate
+extension HomeViewController: FMPageContentViewDelegate {
+    func pageContentView(pageContentView: FMPageContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+        pageTitleView.setTitleWithProgress(progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
+    }
 }
 
 

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol FMPageContentViewDelegate: class {
+    func pageContentView(pageContentView: FMPageContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int)
+}
+
 private let contentCellIdentifier = "contentCellIdentifier"
 
 class FMPageContentView: UIView {
@@ -16,6 +20,7 @@ class FMPageContentView: UIView {
     fileprivate var childVCs: [UIViewController]
     fileprivate weak var parentVC: UIViewController?
     fileprivate var startOffsetX: CGFloat = 0
+    weak var delegate: FMPageContentViewDelegate?
     
     // MARK - 懒加载属性
     fileprivate lazy var collectionView: UICollectionView = { [weak self] in
@@ -92,17 +97,50 @@ extension FMPageContentView: UICollectionViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // 1、
         var progress: CGFloat = 0
         var sourceIndex: Int = 0
         var targetIndex: Int = 0
-        
-        
-        
+        // 2、判断滑动方向
+        let currentOffsetX = scrollView.contentOffset.x
+        let scrollViewW = scrollView.bounds.width
+        if currentOffsetX > startOffsetX {
+            // 左滑
+            progress = currentOffsetX / scrollViewW - floor(currentOffsetX / scrollViewW)
+            // sourceIndex
+            sourceIndex = Int(currentOffsetX / scrollViewW)
+            // targetIndex
+            targetIndex = sourceIndex + 1
+            if targetIndex >= childVCs.count {
+                targetIndex = childVCs.count - 1
+            }
+            // 当前页完全滑过去
+            if currentOffsetX - startOffsetX == scrollViewW {
+                progress = 1
+                targetIndex = sourceIndex
+            }
+        } else {
+            // 右滑
+            progress = 1 - (currentOffsetX / scrollViewW - floor(currentOffsetX / scrollViewW))
+            // targetIndex
+            targetIndex = Int(currentOffsetX / scrollViewW)
+            // sourceIndex
+            sourceIndex = targetIndex + 1
+            if sourceIndex >= childVCs.count {
+                sourceIndex = childVCs.count - 1
+            }
+            // 当前页完全滑过去
+            if -currentOffsetX + startOffsetX == scrollViewW {
+                progress = 1
+                sourceIndex = targetIndex
+            }
+        }
+        print("progress:\(progress) sourceInde:\(sourceIndex) targetIndex:\(targetIndex)")
+        delegate?.pageContentView(pageContentView: self, progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }
-    
 }
 
-// MARK - 对外暴露的方法
+// MARK - Public methods
 extension FMPageContentView {
     func setCurrentIndex(currentIndex: Int) {
 //        let offsetX = CGFloat(currentIndex) * collectionView.frame.width
