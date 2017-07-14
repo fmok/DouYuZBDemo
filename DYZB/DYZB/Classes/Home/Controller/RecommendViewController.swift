@@ -15,19 +15,19 @@ private let kHeaderViewH: CGFloat = 50
 
 private let kNormalCellIdentifier: String = "kNormalCellIdentifier"
 
+private let kSectionHeaderIdentifier = "kSectionHeaderIdentifier"
+
 class RecommendViewController: UIViewController {
     
     // MARK - 懒加载属性
     fileprivate lazy var collectionView: UICollectionView = { [unowned self] in
         let layout = UICollectionViewFlowLayout()
-//        layout.itemSize = CGSize(width: kItemW, height: kItemH)
-//        layout.minimumLineSpacing = 0 // 行间距
-//        layout.minimumInteritemSpacing = kItemGap // item之间的间距
-//        layout.headerReferenceSize = CGSize(width: kScreenW, height: kHeaderViewH)
         let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.white
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kNormalCellIdentifier)
+//        collectionView.register(<#T##viewClass: AnyClass?##AnyClass?#>, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kSectionHeaderIdentifier)
         return collectionView
     }()
     
@@ -35,7 +35,6 @@ class RecommendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kNormalCellIdentifier)
         // 设置UI界面
         setUpUI()
     }
