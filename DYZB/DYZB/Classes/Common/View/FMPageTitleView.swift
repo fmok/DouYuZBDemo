@@ -112,7 +112,7 @@ extension FMPageTitleView {
         let bottomLine = UIView()
         bottomLine.backgroundColor = UIColor.lightGray
         let lineH: CGFloat = 0.5
-        bottomLine.frame = CGRect(x: 0, y: frame.height, width: frame.width, height: lineH)
+        bottomLine.frame = CGRect(x: 0, y: frame.height-lineH, width: frame.width, height: lineH)
         addSubview(bottomLine)
         
         // 2、添加滚动的线

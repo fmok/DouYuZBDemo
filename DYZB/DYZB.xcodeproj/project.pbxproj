@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8423B27C1F1896DF009A8AED /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423B27B1F1896DF009A8AED /* RecommendViewController.swift */; };
 		842AB2A41F170F390012FC6E /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842AB2A31F170F390012FC6E /* UIBarButtonItem-Extension.swift */; };
 		842AB2AA1F17119A0012FC6E /* FMPageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842AB2A91F17119A0012FC6E /* FMPageTitleView.swift */; };
 		842AB2AE1F17146E0012FC6E /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842AB2AD1F17146E0012FC6E /* Common.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8423B27B1F1896DF009A8AED /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		842AB2A31F170F390012FC6E /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
 		842AB2A91F17119A0012FC6E /* FMPageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMPageTitleView.swift; sourceTree = "<group>"; };
 		842AB2AD1F17146E0012FC6E /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				8443E7A51F161CFD002EDF01 /* Home.storyboard */,
 				8443E7A91F161D20002EDF01 /* HomeViewController.swift */,
+				8423B27B1F1896DF009A8AED /* RecommendViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				8443E75A1F15F7EF002EDF01 /* AppDelegate.swift in Sources */,
 				8443E7AA1F161D20002EDF01 /* HomeViewController.swift in Sources */,
 				842AB2AE1F17146E0012FC6E /* Common.swift in Sources */,
+				8423B27C1F1896DF009A8AED /* RecommendViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
