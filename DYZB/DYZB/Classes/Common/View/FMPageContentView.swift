@@ -21,6 +21,7 @@ class FMPageContentView: UIView {
     fileprivate weak var parentVC: UIViewController?
     fileprivate var startOffsetX: CGFloat = 0
     weak var delegate: FMPageContentViewDelegate?
+    fileprivate var isForbidScrollDelegate: Bool = false
     
     // MARK - 懒加载属性
     fileprivate lazy var collectionView: UICollectionView = { [weak self] in
@@ -93,10 +94,16 @@ extension FMPageContentView: UICollectionViewDataSource {
 extension FMPageContentView: UICollectionViewDelegate {
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        isForbidScrollDelegate = false
         startOffsetX = scrollView.contentOffset.x
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if isForbidScrollDelegate == true {
+            return
+        }
+        
         // 1、
         var progress: CGFloat = 0
         var sourceIndex: Int = 0
@@ -145,6 +152,7 @@ extension FMPageContentView {
     func setCurrentIndex(currentIndex: Int) {
 //        let offsetX = CGFloat(currentIndex) * collectionView.frame.width
 //        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: false)
+        isForbidScrollDelegate = true
         let indexPath = NSIndexPath(item: currentIndex, section: 0)
         collectionView.scrollToItem(at: indexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
     }

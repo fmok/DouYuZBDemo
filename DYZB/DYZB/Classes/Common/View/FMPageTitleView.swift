@@ -133,6 +133,10 @@ extension FMPageTitleView {
         }
         // 2、获取之前的label
         let oldLabel = titleLabels[currentIndex]
+        if oldLabel.tag == currentLabel.tag {
+            print("点击同一个title:\(currentLabel.tag)")
+            return
+        }
         
         // 3、保存最新label的下标
         currentIndex = currentLabel.tag
@@ -169,6 +173,8 @@ extension FMPageTitleView {
         sourceLabel.textColor = UIColor(r: kSelectedColor.0 - colorChangeRange.0*progress, g: kSelectedColor.1 - colorChangeRange.1*progress, b: kSelectedColor.2 - colorChangeRange.2*progress)
         // 3.3、处理targetLabel渐变色
         targetLabel.textColor = UIColor(r: kNormalColor.0 + colorChangeRange.0*progress, g: kNormalColor.1 + colorChangeRange.1*progress, b: kNormalColor.2 + colorChangeRange.2*progress)
+        // 4、记录最新的index
+        currentIndex = targetIndex
     }
 }
 
